@@ -48,7 +48,7 @@ class MyHttpServer {
     private static String route(HTTPRequest request) throws IOException {
         String body = "";
         if (request.path.startsWith("/search")) {
-            String query = StringButchering.getParams().get("query");
+            String query = StringButchering.getParams(request.path).get("query");
             String url = AlbumSearch.getAlbumArtUrl(query);
             body += "<html>";
             body += "<img src='" + url + "'>";

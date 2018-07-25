@@ -21,6 +21,8 @@ public class AlbumSearch {
             String src = img.attr("data-src");
             System.out.println(src);
 
+            return src;
+
         }catch (IOException e){
             e.printStackTrace();
         }

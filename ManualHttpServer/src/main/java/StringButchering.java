@@ -4,21 +4,21 @@ import java.util.Map;
 public class StringButchering {
 
     public static void main(String[] args) {
-       Map<String, String> params = getParams();
+       Map<String, String> params = getParams("/search?query=Tom null");
         System.out.println("q: " + params.get("q"));
     }
 
-        public static Map<String, String> getParams(){
+        public static Map<String, String> getParams(String url){
         Map<String, String> params = new HashMap<>();
-            String example = "https://www.discogs.com/search/?q=thrice+vheissu&type=all";
+            String example = "";
 
 
-            if (!example.contains("?")) {
+            if (!url.contains("?")) {
             return params;
         }
 
 
-        String querystring = example.split("\\?")[1];
+        String querystring = url.split("\\?")[1];
         String[] pairs = querystring.split("&");
         for (String pair : pairs) {
 
